@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Coach</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<script type="text/javascript" src="assets/javascript/game.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+		<!-- Page styling -->
+		<style>
+			body {
+			   background-color: black;
+			Font-family: clarendon-urw;
+			}
+			/*<!-- Navigation Bar/Alphabetical drop down -->*/
+			header {
+				color: #3a4a10;
+				text-align: center;
+				background: #d1b502;
+			}
+			/*Header*/
+			p{
+				font-size: 8rem;
+				color: #d1b502;
+				margin-left:20px;
+			}
+			/*About the leather*/
+			th {
+				color: grey;
+				border: 1px solid yellow ;
+				padding:10px 30px;
+				width: 30%;
+			}
+		</style>
+			<!-- Designer's Names -->
+		<header>
+			DESIGNERS: 
+			| <a href="index.html">INTRO</a> |
+			<a href="annasui.html">Anna Sui</a> |
+			<a href="bibhumohapatra.html">Bibhu Mohapatra</a> |
+			<a href="dennisbasso.html">Dennis Basso</a> |
+			<a href="erinfetherson.html">Erin Fetherson</a> |
+			<a href="francescaliberatore.html">Francesca Liberatore</a> |
+			<a href="georgine.html">Georgine</a> |
+			<a href="irinavitjaz.html">Irina Vitjaz</a> |
+			<a href="jeremyscott.html">Jeremy Scott</a> |<br>
+			<a href="lv.html">Louis Vuitton</a> |
+			<a href="mk.html">Michael Kors</a> |
+			<a href="ninatiari.html">Nina Tiari</a> |
+			<a href="oscardelarente.html">Oscar De Larente</a> |
+			<a href="philippplein.html">Philipp Plein</a> |
+			<a href="romeohunte.html">Romeo Hunte</a> |
+			<a href="sonjungwan.html">Son Jung Wan</a> |
+			<a href="tadashishoji.html">Tadashi Shoji</a> |
+			<a href="viviennehu.html">Vivienne Hu</a> |
+		</header>
+	</head>
+	<body>
+	<p>COACH</p>
+	<!-- Website's intro picture -->
+	<img src="assets/images/C.jpeg" height="500" width="100%">
+	<br><br><br>
+	<!--About the leather -->
+	<p> A legacy In Leather</p>
+	<table style="width:90%">
+	<tr>
+	   <th>STEP 1: raw hides</th>
+	   <th>All leathers begin as raw hides. We buy ours from 10 core tanneries we’ve chosen for their quality, consistency, and capability to make the range of colors and finishes we want. They must also meet our environmental standards—the highest in the industry.</th> 
+	</tr>
+	<tr>
+	   <th>STEP 2: tanning</th>
+	   <th>The next step is tanning, which preserves the leather. Chrome tanning creates a more supple leather that can take a broad range of Coach colors. Vegetable tanning produces a brown-colored leather that cannot become a pastel or take clear, bright hues.</th>
+	<tr>
+	   <th>STEP 3: splitting:</th>
+	   <th>After the leather has been tanned, it’s graded and split. Only top-grade leathers are selected for Coach. They are then thinned to a desired thickness for drape and a lighter weight. The top layer of the leather has the highest value, as it preserves the natural grain. 
+	</th> 
+	</tr>
+	<tr>
+	   <th>STEP 4: retanning</th>
+	   <th>During this stage, retanning agents determine the “body” and allow deep dye penetration. A custom mix of dyes is added to create a specific Coach color while ensuring complete saturation. Oils are also added to lubricate the leather fibers and impart softness.</th>
+	</tr>
+	<tr>
+	   <th>STEP 5: drying</th>
+	   <th>The way leather is dried determines how supple it will be. It can be “toggle-dried” for a loose, open grain and a soft textured feel, or flattened with a hot plate to create a smoother, firmer leather.</th>
+	</tr>
+	<tr>
+	   <th>STEP 6: finishing</th>
+	   <th>The final look and feel of a Coach leather is created through several stages of finishing, including spray finishing for color and surface feel, ironing for sheen, embossing for texture, and tumbling—also known as “milling”—to slightly soften or thoroughly pebble the leather.</th>
+	</tr>
+	<tr>
+	   <th>STEP 7: final inspection</th>
+	   <th>Finished leathers are inspected according to extremely rigorous Coach standards for quality and durability. After a final grading, they’re sent to us to be made into Coach products.</th>
+	</tr>
+	</table>
+	<!-- API Models -->
+	<div class="row">
+				<div class="col-md-4">
+	    		<!-- Model API buttons -->
+				<div class="modelbuttons">
+					<h4>
+					API<br>Designer<br>Facts
+					</h4>
+					<button data-person="Anna Sui">
+						Designer Anna Sui
+					</button><br><br><br>
+					<button data-person="China">
+						Chinese Background
+					</button><br><br><br>
+					<button data-person="nyc">
+						Resides in NYC
+					</button><br><br><br>
+					<button data-person="Parsons The New School for Design">
+						Parsons The New School for Design
+					</button><br><br><br>
+				</div>
+				<!-- Add more seacrh bar -->
+				<form id="subject-form">
+					<input type="text" id="api-input">
+					<input id="adding-button" type="submit" value="ADD MORE">
+				</form>
+				</div>
+				<div class="col-md-8">
+					<!-- person GIFs -->
+					<div id="gifs-appear-here"></div>
+				</div>
+			</div>
+		</div>
+<!-- Javascript/query --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+		// Add more seacrh bar
+		$("#adding-button").on("click", function(event) {
+			event.preventDefault();
+
+			var newButton = $("#api-input").val().trim();
+			var oneButton = $("<button>");
+			if (newButton == "") {
+				return 0;
+			} else {oneButton.attr("data-person", newButton);
+					oneButton.text(newButton);
+					oneButton.addClass("inputPerson");
+					$("#person-button").prepend(oneButton);
+
+			}
+
+			oneButton.attr("data-oerson", newButton);
+			oneButton.text(newButton);
+			oneButton.addClass("inputPerson");
+			$("#person-button").prepend(oneButton);
+
+			console.log(newButton);
+			console.log(oneButton);
+
+	});
+	// Event listener for all button elements
+	$("button").on("click", function() {
+		// In this case, the "this" keyword refers to the button that was clicked
+		var person = $(this).attr("data-person");
+
+		// Constructing a URL to search Giphy for the name of the person who said the quote
+		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+		person + "&api_key=dc6zaTOxFJmzC&limit=4";
+		$("#gifs-appear-here").empty();
+
+		// Performing our AJAX GET request
+		$.ajax({
+		url: queryURL,
+		method: "GET"
+		})
+		// After the data comes back from the API
+		.done(function(response) {
+		// Storing an array of results in the results variable
+		var results = response.data;
+
+			// Looping over every result item
+			for (var i = 0; i < results.length; i++) {
+
+				// Only taking action if the photo has an appropriate rating
+				if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+				// Creating a div with the class "item"
+				var gifDiv = $("<div class='item'>");
+
+				// Storing the result item's rating
+				var rating = results[i].rating;
+
+				// Creating a paragraph tag with the result item's rating
+				var p = $("<p>").text("Rating: " + rating);
+
+				// Creating an image tag
+				var personImage = $("<img class='myPerson'>");
+
+				// Giving the image tag an src attribute of a proprty pulled off the
+				// result item
+				personImage.attr("src", results[i].images.fixed_height.url);
+              	personImage.attr("data-animate", results[i].images.fixed_height.url);
+              	personImage.attr("data-still", results[i].images.fixed_height_still.url);
+              	personImage.attr("data-state", "animate");
+
+				// Appending the paragraph and personImage we created to the "gifDiv" div we created
+				gifDiv.prepend(p);
+				gifDiv.prepend(personImage);
+
+			// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+			$("#gifs-appear-here").append(gifDiv);
+			}
+			}
+		});
+	});
+	//Pause function
+		$(document).on("click", ".myPerson", function() {
+      		var state = $(this).data("state");
+      			if (state === "still") {
+        			$(this).attr("src", $(this).attr("data-animate"));
+         			 $(this).data("state","animate");
+      			} else {
+        			$(this).attr("src", $(this).attr("data-still"));
+          			$(this).data("state", "still");
+      			}
+       });
+</script>
+	</body>
+</html>

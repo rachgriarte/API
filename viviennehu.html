@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vivienne Hu</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+        <!-- Page styling -->
+        <style>
+            body {
+                background-color: #f0780e;
+                Font-family: clarendon-urw;
+            }
+            header {
+            	background: lightgrey;
+            	color: orange;
+            	text-align: center;
+            	margin: 20px 0;
+            }
+            /*Designer's name*/
+            h1{
+                Font-family: clarendon-urw;
+                color: black;
+                font-size: 8rem;
+                text-align: center;
+            }
+            /*Navigation Bar/Alphabetical drop down*/
+            .container-fluid {
+            	color: blue;
+            }
+            /*Designer's bio*/
+            p{
+                font-size: 1.5rem;
+                color: white;
+                text-align: center;
+            }
+        </style>
+        <header>
+            DESIGNERS: 
+            | <a href="index.html">INTRO</a> |
+            <a href="annasui.html">Anna Sui</a> |
+            <a href="bibhumohapatra.html">Bibhu Mohapatra</a> |
+            <a href="coach.html">Coach</a> |
+            <a href="dennisbasso.html">Dennis Basso</a> |
+            <a href="erinfetherson.html">Erin Fetherson</a> |
+            <a href="francescaliberatore.html">Francesca Liberatore</a> |
+            <a href="georgine.html">Georgine</a> |
+            <a href="irinavitjaz.html">Irina Vitjaz</a> |
+            <a href="jeremyscott.html">Jeremy Scott</a> |<br>
+            <a href="lv.html">Louis Vuitton</a> |
+            <a href="mk.html">Michael Kors</a> |
+            <a href="ninatiari.html">Nina Tiari</a> |
+            <a href="oscardelarente.html">Oscar De Larente</a> |
+            <a href="philippplein.html">Philipp Plein</a> |
+            <a href="romeohunte.html">Romeo Hunte</a> |
+            <a href="sonjungwan.html">Son Jung Wan</a> |
+            <a href="tadashishoji.html">Tadashi Shoji</a> |
+        </header>
+    </head>
+    <body>
+    	<!--Designer's bio-->
+	    <p>
+			Hu was born in China. As a teenager, she moved to Germany to study at the University of Hohenheim and Goethe-Institut, earning a bachelor's degree in finance studies.Hu later moved to the United States for her professional development. She worked at an investment bank for over three years, then attended Parsons School of Design and gained industry experience with Oscar de la Renta and Yigal Azrouel. 
+			Hu established her brand and debuted her spring/summer collection in 2012.The label has two stores in Soho, New York, that opened in 2013 and 2016 respectively, and its first China store opened in 2015. Hu participated in Mercedes-Benz New York Fashion Week runways for the 2015 seasons,[8] and subsequently in the re-branded NYFW-THE SHOWS runways for the 2016 and 2017 seasons. In 2015, Hu showcased her fall/winter 2015 collection at Shenzhen Fashion Week in China. Hu was named a Swarovski Collective 2016 designer.
+	    </p>
+    	<!-- Designer's name -->
+	    <h1>V i v i e n n e H u </h1>
+		    <div class="container">
+		        <!-- Designer's pics -->
+		        <div class="row">
+		            <div class="col-md-4">
+		                <img src="assets/images/VH.jpeg" id="img" height="300" width="100%">
+		            </div>
+		            <div class="col-md-4">
+			            <img src="assets/images/VHHH.jpeg" id="img" height="400" width="100%">
+			        </div>
+		            <div class="col-md-4">
+		                <img src="assets/images/VHH.jpeg" id="img" height="300" width="100%">
+		            </div>
+		        </div>
+		    </div>
+	    <!-- API Models -->
+<div class="row">
+				<div class="col-md-4">
+	    		<!-- Model API buttons -->
+				<div class="modelbuttons">
+					<h4>
+					API<br>Designer<br>Facts
+					</h4>
+					<button data-person="Anna Sui">
+						Designer Anna Sui
+					</button><br><br><br>
+					<button data-person="China">
+						Chinese Background
+					</button><br><br><br>
+					<button data-person="nyc">
+						Resides in NYC
+					</button><br><br><br>
+					<button data-person="Parsons The New School for Design">
+						Parsons The New School for Design
+					</button><br><br><br>
+				</div>
+				<!-- Add more seacrh bar -->
+				<form id="subject-form">
+					<input type="text" id="api-input">
+					<input id="adding-button" type="submit" value="ADD MORE">
+				</form>
+				</div>
+				<div class="col-md-8">
+					<!-- person GIFs -->
+					<div id="gifs-appear-here"></div>
+				</div>
+			</div>
+		</div>
+<!-- Javascript/query --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+		// Add more seacrh bar
+		$("#adding-button").on("click", function(event) {
+			event.preventDefault();
+
+			var newButton = $("#api-input").val().trim();
+			var oneButton = $("<button>");
+			if (newButton == "") {
+				return 0;
+			} else {oneButton.attr("data-person", newButton);
+					oneButton.text(newButton);
+					oneButton.addClass("inputPerson");
+					$("#person-button").prepend(oneButton);
+
+			}
+
+			oneButton.attr("data-oerson", newButton);
+			oneButton.text(newButton);
+			oneButton.addClass("inputPerson");
+			$("#person-button").prepend(oneButton);
+
+			console.log(newButton);
+			console.log(oneButton);
+
+	});
+	// Event listener for all button elements
+	$("button").on("click", function() {
+		// In this case, the "this" keyword refers to the button that was clicked
+		var person = $(this).attr("data-person");
+
+		// Constructing a URL to search Giphy for the name of the person who said the quote
+		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+		person + "&api_key=dc6zaTOxFJmzC&limit=4";
+		$("#gifs-appear-here").empty();
+
+		// Performing our AJAX GET request
+		$.ajax({
+		url: queryURL,
+		method: "GET"
+		})
+		// After the data comes back from the API
+		.done(function(response) {
+		// Storing an array of results in the results variable
+		var results = response.data;
+
+			// Looping over every result item
+			for (var i = 0; i < results.length; i++) {
+
+				// Only taking action if the photo has an appropriate rating
+				if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+				// Creating a div with the class "item"
+				var gifDiv = $("<div class='item'>");
+
+				// Storing the result item's rating
+				var rating = results[i].rating;
+
+				// Creating a paragraph tag with the result item's rating
+				var p = $("<p>").text("Rating: " + rating);
+
+				// Creating an image tag
+				var personImage = $("<img class='myPerson'>");
+
+				// Giving the image tag an src attribute of a proprty pulled off the
+				// result item
+				personImage.attr("src", results[i].images.fixed_height.url);
+              	personImage.attr("data-animate", results[i].images.fixed_height.url);
+              	personImage.attr("data-still", results[i].images.fixed_height_still.url);
+              	personImage.attr("data-state", "animate");
+
+				// Appending the paragraph and personImage we created to the "gifDiv" div we created
+				gifDiv.prepend(p);
+				gifDiv.prepend(personImage);
+
+			// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+			$("#gifs-appear-here").append(gifDiv);
+			}
+			}
+		});
+	});
+	//Pause function
+		$(document).on("click", ".myPerson", function() {
+      		var state = $(this).data("state");
+      			if (state === "still") {
+        			$(this).attr("src", $(this).attr("data-animate"));
+         			 $(this).data("state","animate");
+      			} else {
+        			$(this).attr("src", $(this).attr("data-still"));
+          			$(this).data("state", "still");
+      			}
+       });
+</script>
+	</body>
+</html>

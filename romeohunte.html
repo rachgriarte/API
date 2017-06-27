@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Romeo Honte</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<script type="text/javascript" src="assets/javascript/game.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+		<!-- Page styling -->
+		<style>
+			body {
+				background-color: black;
+				Font-family: clarendon-urw;
+			}
+			header {
+				Font-family: clarendon-urw;
+				color: orange;
+				font-size: 1.5rem;
+				text-align: center;
+				background: white;
+				border: 1px solid black;
+			}
+			h1{
+				Font-family: clarendon-urw;
+				color: orange;
+				font-size: 5rem;
+				float: right;
+			/*Designer's Info*/
+			p{
+				color: yellow;
+				background: black;
+				padding: 20px;
+			}
+			/*Website's intro picture*/
+			#img {
+				background: black;
+				float: right;
+			}
+		</style>
+		<header>
+            DESIGNERS: 
+            | <a href="index.html">INTRO</a> |
+            <a href="annasui.html">Anna Sui</a> |
+            <a href="bibhumohapatra.html">Bibhu Mohapatra</a> |
+            <a href="coach.html">Coach</a> |
+            <a href="dennisbasso.html">Dennis Basso</a> |
+            <a href="erinfetherson.html">Erin Fetherson</a> |
+            <a href="francescaliberatore.html">Francesca Liberatore</a> |
+            <a href="georgine.html">Georgine</a> |
+            <a href="irinavitjaz.html">Irina Vitjaz</a> |
+            <a href="jeremyscott.html">Jeremy Scott</a> |<br>
+            <a href="lv.html">Louis Vuitton</a> |
+            <a href="mk.html">Michael Kors</a> |
+            <a href="ninatiari.html">Nina Tiari</a> |
+            <a href="oscardelarente.html">Oscar De Larente</a> |
+            <a href="philippplein.html">Philipp Plein</a> |
+            <a href="sonjungwan.html">Son Jung Wan</a> |
+            <a href="tadashishoji.html">Tadashi Shoji</a> |
+            <a href="viviennehu.html">Vivienne Hu</a> |
+        </header>
+	</head>
+	<body>
+	<h1> ROMEO HUNTE </h1>
+	<p>
+	<img src="assets/images/RH.jpeg" id="img" height="400" width="300">
+	</p>
+	<!-- Designer's Info -->
+	<p>
+		As a Fashion Designer, Romeo Hunte’s inspiration started at the early age of 13.<br>  
+		With the leader of the inspiration being his mother. He has always had a keen eye for fashion by watching his mother’s sense of style.<br>  
+		Growing up, Hunte was additionally surrounded by multiple women that all had an appreciation for fashion.<br>  
+		These early influences helped Hunte to reach his destiny of becoming a fashion designer.
+	</p>
+	<!-- API Models -->
+<div class="row">
+				<div class="col-md-4">
+	    		<!-- Model API buttons -->
+				<div class="modelbuttons">
+					<h4>
+					API<br>Designer<br>Facts
+					</h4>
+					<button data-person="Anna Sui">
+						Designer Anna Sui
+					</button><br><br><br>
+					<button data-person="China">
+						Chinese Background
+					</button><br><br><br>
+					<button data-person="nyc">
+						Resides in NYC
+					</button><br><br><br>
+					<button data-person="Parsons The New School for Design">
+						Parsons The New School for Design
+					</button><br><br><br>
+				</div>
+				<!-- Add more seacrh bar -->
+				<form id="subject-form">
+					<input type="text" id="api-input">
+					<input id="adding-button" type="submit" value="ADD MORE">
+				</form>
+				</div>
+				<div class="col-md-8">
+					<!-- person GIFs -->
+					<div id="gifs-appear-here"></div>
+				</div>
+			</div>
+		</div>
+<!-- Javascript/query --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+		// Add more seacrh bar
+		$("#adding-button").on("click", function(event) {
+			event.preventDefault();
+
+			var newButton = $("#api-input").val().trim();
+			var oneButton = $("<button>");
+			if (newButton == "") {
+				return 0;
+			} else {oneButton.attr("data-person", newButton);
+					oneButton.text(newButton);
+					oneButton.addClass("inputPerson");
+					$("#person-button").prepend(oneButton);
+
+			}
+
+			oneButton.attr("data-oerson", newButton);
+			oneButton.text(newButton);
+			oneButton.addClass("inputPerson");
+			$("#person-button").prepend(oneButton);
+
+			console.log(newButton);
+			console.log(oneButton);
+
+	});
+	// Event listener for all button elements
+	$("button").on("click", function() {
+		// In this case, the "this" keyword refers to the button that was clicked
+		var person = $(this).attr("data-person");
+
+		// Constructing a URL to search Giphy for the name of the person who said the quote
+		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+		person + "&api_key=dc6zaTOxFJmzC&limit=4";
+		$("#gifs-appear-here").empty();
+
+		// Performing our AJAX GET request
+		$.ajax({
+		url: queryURL,
+		method: "GET"
+		})
+		// After the data comes back from the API
+		.done(function(response) {
+		// Storing an array of results in the results variable
+		var results = response.data;
+
+			// Looping over every result item
+			for (var i = 0; i < results.length; i++) {
+
+				// Only taking action if the photo has an appropriate rating
+				if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+				// Creating a div with the class "item"
+				var gifDiv = $("<div class='item'>");
+
+				// Storing the result item's rating
+				var rating = results[i].rating;
+
+				// Creating a paragraph tag with the result item's rating
+				var p = $("<p>").text("Rating: " + rating);
+
+				// Creating an image tag
+				var personImage = $("<img class='myPerson'>");
+
+				// Giving the image tag an src attribute of a proprty pulled off the
+				// result item
+				personImage.attr("src", results[i].images.fixed_height.url);
+              	personImage.attr("data-animate", results[i].images.fixed_height.url);
+              	personImage.attr("data-still", results[i].images.fixed_height_still.url);
+              	personImage.attr("data-state", "animate");
+
+				// Appending the paragraph and personImage we created to the "gifDiv" div we created
+				gifDiv.prepend(p);
+				gifDiv.prepend(personImage);
+
+			// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+			$("#gifs-appear-here").append(gifDiv);
+			}
+			}
+		});
+	});
+	//Pause function
+		$(document).on("click", ".myPerson", function() {
+      		var state = $(this).data("state");
+      			if (state === "still") {
+        			$(this).attr("src", $(this).attr("data-animate"));
+         			 $(this).data("state","animate");
+      			} else {
+        			$(this).attr("src", $(this).attr("data-still"));
+          			$(this).data("state", "still");
+      			}
+       });
+</script>
+	</body>
+</html>
