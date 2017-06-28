@@ -28,7 +28,7 @@
 		var person = $(this).attr("data-person");
 
 		// Constructing a URL to search Giphy for the name of the person who said the quote
-		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
 		person + "&api_key=dc6zaTOxFJmzC&limit=4";
 		$("#gifs-appear-here").empty();
 
